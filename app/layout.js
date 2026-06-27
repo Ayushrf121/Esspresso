@@ -2,6 +2,7 @@ import { Playfair_Display, Inter } from 'next/font/google';
 import './globals.css';
 import { Providers } from './providers';
 import Navbar from '@/components/layout/Navbar'; 
+import Footer from '@/components/layout/Footer';
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -27,6 +28,7 @@ export default function RootLayout({ children }) {
         <Providers>
           <Navbar />
           <main>{children}</main>
+          <Footer/>
         </Providers>
       </body>
     </html>

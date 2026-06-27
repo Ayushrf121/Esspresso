@@ -47,17 +47,32 @@ const Features = () => {
 
   return (
     <section ref={sectionRef} className="py-20 bg-cream relative overflow-hidden">
-      {/* Background decorative circles */}
-      <div className="absolute inset-0 opacity-5 pointer-events-none">
-        <div className="absolute top-10 left-10 w-32 h-32 border-2 border-coffee-300/30 rounded-full" />
-        <div className="absolute bottom-20 right-20 w-48 h-48 border-2 border-coffee-300/30 rounded-full" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 border-2 border-gold/20 rounded-full" />
+      {/* 🎨 Pattern overlay – diagonal split tiles */}
+      <div
+        className="absolute inset-0 opacity-40 pointer-events-none"
+        style={{
+          backgroundImage: `
+            linear-gradient(45deg, rgba(142,90,58,0.06) 25%, transparent 25%),
+            linear-gradient(-45deg, rgba(142,90,58,0.06) 25%, transparent 25%),
+            linear-gradient(45deg, transparent 75%, rgba(142,90,58,0.06) 75%),
+            linear-gradient(-45deg, transparent 75%, rgba(142,90,58,0.06) 75%)
+          `,
+          backgroundSize: '60px 60px',
+          backgroundPosition: '0 0, 0 30px, 30px -30px, -30px 0px',
+        }}
+      />
+
+      {/* Subtle background circles (kept for depth) */}
+      <div className="absolute inset-0 opacity-30 pointer-events-none">
+        <div className="absolute top-10 left-10 w-32 h-32 border-2 border-coffee-300/20 rounded-full" />
+        <div className="absolute bottom-20 right-20 w-48 h-48 border-2 border-coffee-300/20 rounded-full" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 border-2 border-gold/10 rounded-full" />
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="font-display text-3xl sm:text-4xl font-bold text-coffee-800">
-            Why Espresso? {/* fixed typo */}
+            Why Espresso?
           </h2>
           <p className="mt-4 text-lg text-coffee-500">
             We go beyond the cup – every detail is crafted for your perfect coffee moment.
@@ -73,7 +88,7 @@ const Features = () => {
               <div
                 key={i}
                 ref={(el) => (cardsRef.current[i] = el)}
-                className="bg-white rounded-2xl overflow-hidden shadow-lg border border-coffee-100/50 group transition-all duration-500 ease-out hover:-translate-y-2 hover:scale-[1.02] hover:shadow-2xl hover:border-gold/30"
+                className="bg-white/90 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg border border-coffee-100/50 group transition-all duration-500 ease-out hover:-translate-y-2 hover:scale-[1.02] hover:shadow-2xl hover:border-gold/30"
               >
                 {/* Image with hover zoom and fallback */}
                 <div className="relative h-48 w-full overflow-hidden bg-coffee-100/50">
@@ -91,7 +106,6 @@ const Features = () => {
                     </div>
                   )}
                   <div className="absolute inset-0 bg-gradient-to-t from-coffee-900/30 to-transparent" />
-                  {/* Icon badge with hover pop */}
                   <div className="absolute bottom-3 left-3 bg-coffee-50/80 backdrop-blur-sm rounded-full p-2 shadow-md transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12">
                     <Icon size={20} className="text-gold" strokeWidth={1.5} />
                   </div>
