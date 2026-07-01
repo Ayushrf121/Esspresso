@@ -1,10 +1,9 @@
 'use client';
-
-import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
+import { useEffect, useRef } from 'react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { products } from '@/lib/productsData';  
 import ProductCard from './ProductCard';
-import { products } from '@/lib/productsData';
 
 const ProductGrid = () => {
   const sectionRef = useRef(null);
